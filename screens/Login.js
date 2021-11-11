@@ -57,7 +57,7 @@ const Login = ({navigation}) => {
             }
             setSubmitting(false);
          }).catch(error => {
-            console.log(error.JSON());
+            //console.log(error.JSON());
              setSubmitting(false);
              handleMessage("An error occured. Check your network and try again");
          })
