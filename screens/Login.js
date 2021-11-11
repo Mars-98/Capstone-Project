@@ -10,6 +10,9 @@ import {Octicons, Ionicons} from '@expo/vector-icons';
 //keyboard avoiding wrapper - so that keyboard doesn't block fields
 import KeyboardAvoidingWrapper from './../components/keyboardAvoidingWrapper';
 
+//API Client
+import axios from 'axios';
+
 import {
     StyledContainer,
     InnerContainer,
@@ -30,10 +33,40 @@ import {
     MessageBox,
     Line
 } from './../components/styles';
-import {View} from 'react-native';
+import {View, ActivityIndicator} from 'react-native';
 
-const Login = () => {
+const Login = ({navigation}) => {
     const[hidePassword, setHidePassword] = useState(true);
+    const[message, setMessage] = useState();
+    const[messageType, setMessageType] = useState();
+
+    const handleLogin = (credentials, setSubmitting) => {
+        handleMessage(null);
+         const url = 'https://damp-badlands-46459.herokuapp.com/https://pacific-mountain-43409.herokuapp.com/user/signin';
+
+         axios
+         .post(url, credentials)
+         .then((response) => {
+            const result = response.data;
+            const {status, message, data} = result;
+
+            if(status != 'SUCCESS') {
+                handleMessage(message, status);
+            } else {
+                navigation.navigate('Welcome', {...data[0]});
+            }
+            setSubmitting(false);
+         }).catch(error => {
+            console.log(error.JSON());
+             setSubmitting(false);
+             handleMessage("An error occured. Check your network and try again");
+         })
+    }
+
+    const handleMessage = (message, type = 'FAILED') => {
+        setMessage(message);
+        setMessageType(type);
+    }
 
     return (
         <KeyboardAvoidingWrapper>
@@ -44,10 +77,15 @@ const Login = () => {
                     <SubTitle>Account Login</SubTitle>
                     <Formik
                     initialValues={{email: '', password: ''}}
-                    onSubmit={(values) => {
-                        console.log(values);
+                    onSubmit={(values, {setSubmitting}) => {
+                        if(values.email == '' || values.password == ''){
+                            handleMessage('Please fill all the fields');
+                            setSubmitting(false);
+                        } else {
+                            handleLogin(values, setSubmitting);
+                        }
                     }}
-                    >{({handleChange, handleBlur, handleSubmit, values}) => (
+                    >{({handleChange, handleBlur, handleSubmit, values, isSubmitting}) => (
                     <StyledFormArea>
                         <MyTextInput 
                         label="Email Address"
@@ -72,14 +110,21 @@ const Login = () => {
                         hidePassword={hidePassword}
                         setHidePassword={setHidePassword}
                         />
-                        <MessageBox>. . . </MessageBox>
+                        <MessageBox type={messageType}>{message}</MessageBox>
+                        {!isSubmitting && (
                         <StyledButton onPress={handleSubmit}>
                             <ButtonText>Login</ButtonText>
-                        </StyledButton>
+                        </StyledButton>)}
+
+                        {isSubmitting && (
+                        <StyledButton disabled={true}>
+                            <ActivityIndicator size="large" color={Colors.primary} />
+                        </StyledButton>)}
+
                         <Line />
                         <ExtraView>
                             <ExtraText>Don't have an account already? </ExtraText>
-                            <TextLink>
+                            <TextLink onPress={() => navigation.navigate('Signup')}>
                                 <TextLinkContent>Signup</TextLinkContent>
                             </TextLink>
                         </ExtraView>
