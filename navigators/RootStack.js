@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactNative from "react-native";
 // react navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -6,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './../screens/Login'
 import Signup from './../screens/Signup';
 import Welcome from './../screens/Welcome';
+import Game from './../screens/Game';
 //colors
 import {Colors} from './../components/styles';
 
@@ -33,9 +35,12 @@ const RootStack = () => {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="Welcome" component={Welcome} />
+                <Stack.Screen name="Game" component={Game} />
             </Stack.Navigator>
         </NavigationContainer>
     )
 } 
+
+
 
 export default RootStack;

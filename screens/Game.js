@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import GameScreen from './../screens/Game';
+import Welcome from './../screens/Welcome';
 import {
     InnerContainer,
     PageTitle,
@@ -13,22 +13,15 @@ import {
 } from './../components/styles';
 
 
-const Welcome = ({navigation, route}) => {
-    const {name, email} = route.params;
-
+const Game = ({navigation, route}) => {
     return (
         <>
             <StatusBar style="dark"/>
             <InnerContainer>
                 <WelcomeContainer>
-                    <PageTitle welcome={true}>Welcome to Sport Smash!</PageTitle>
-                    <SubTitle welcome={true}>{name}</SubTitle>
-                    <SubTitle welcome={true}>{email}</SubTitle>
+                    <PageTitle welcome={true}>Let's Play Sport Smash!</PageTitle>
                     <StyledFormArea>
                         <Line />
-                        <StyledButton onPress={() => {navigation.navigate(GameScreen)}}>
-                            <ButtonText>Play Game</ButtonText>
-                        </StyledButton>
                         <StyledButton onPress={() => {navigation.navigate('Login')}}>
                             <ButtonText>Logout</ButtonText>
                         </StyledButton>
@@ -39,4 +32,4 @@ const Welcome = ({navigation, route}) => {
     );
 }
 
-export default Welcome;
+export default Game;
