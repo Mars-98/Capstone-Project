@@ -8,3 +8,4 @@ export default function App() {
   return <RootStack />
 }
 
+///I did a few chnages to the application 
