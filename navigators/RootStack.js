@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './../screens/Login'
 import Signup from './../screens/Signup';
 import Welcome from './../screens/Welcome';
+import Gameplay from './../screens/Gameplay';
 //colors
 import {Colors} from './../components/styles';
 
@@ -33,7 +34,7 @@ const RootStack = () => {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="Welcome" component={Welcome} />
-            </Stack.Navigator>
+                 </Stack.Navigator>
         </NavigationContainer>
     )
 } 
