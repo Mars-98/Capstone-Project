@@ -8,7 +8,7 @@ import footBall from '../images/football.png'
 import basketBall from '../images/basketball.png'
 import volleyBall from '../images/Volleyball.png'
 import blank from '../images/blank.png'
-import  './Gameplay.css'
+import   '../screens/gameplay.css'
 import gameMusicPlay from '../music/gameMusic.mp3'
 
 
@@ -178,7 +178,7 @@ const Gameplay = () => {
         return () => clearInterval(timer)
     }, [checkForColumnOfFour, checkForRowOfFour, checkForColumnOfThree, checkForRowOfThree, moveIntoSquareBelow, currentBallArrangement])
 
-  useEffect(() => {
+ useEffect(() => {
       gameMusic.play();
   }, gameMusic.pause());
 

@@ -1,7 +1,8 @@
-import React from 'react';
+//import React from 'react';
 // react navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+//import { Button, View,Text } from 'react-native';
 //screens
 import Login from './../screens/Login'
 import Signup from './../screens/Signup';
@@ -11,7 +12,7 @@ import Gameplay from './../screens/Gameplay';
 import {Colors} from './../components/styles';
 
 
-const Stack = createStackNavigator();
+/*const Stack = createStackNavigator();
 
 const RootStack = () => {
     return (
@@ -34,9 +35,13 @@ const RootStack = () => {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Signup" component={Signup} />
                 <Stack.Screen name="Welcome" component={Welcome} />
+                <Stack.Screen name="Gameplay" component={Gameplay} />
+                
+                
                  </Stack.Navigator>
-        </NavigationContainer>
-    )
-} 
+        </NavigationContainer>*/
+       //
+   // );
+//} 
 
-export default RootStack;
+//export default RootStack;
