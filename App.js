@@ -10,29 +10,31 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Welcome from './screens/Welcome';
 import Signup from './screens/Signup';
 import Gameplay from './screens/Gameplay';
-//import gameMusic from './music/gameMusic.mp3';
+import Login from './screens/Login'
+import gameMusic from './music/gameMusic.mp3';
+import RootStack from './navigators/RootStack';
 import './app.css'
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+/*const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
          name ="Gameplay"
-         component={Gameplay} 
+         component={Login} 
          />
          <Stack.Screen name = "Sign" component={Signup}/>
       </Stack.Navigator>
     
     </NavigationContainer>
   );
-};
+};*/
    
 
-export default App;
-//export default function App() {
-  //return <login />
-//}
+//export default App;
+export default function App() {
+  return <RootStack />
+}
 
 ///I did a few chnages to the application 
