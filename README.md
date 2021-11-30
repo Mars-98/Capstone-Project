@@ -8,6 +8,7 @@ Mobile game for both andriod and Ios platfrom.
    
    Collaborators include:
   MAA
+  PU
   VMO
   WLW
-  PU
+
