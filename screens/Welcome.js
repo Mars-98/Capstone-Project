@@ -21,17 +21,19 @@ const Welcome = ({navigation, route}) => {
             <StatusBar style="dark"/>
             <InnerContainer>
                 <WelcomeContainer>
-                    <PageTitle welcome={true}>Welcome to Sport Smash!</PageTitle>
-                    <SubTitle welcome={true}>{name}</SubTitle>
+                    <PageTitle welcome={true}>Welcome back, {name}!</PageTitle>
+
                     <SubTitle welcome={true}>{email}</SubTitle>
                     <StyledFormArea>
                         <Line />
                         <StyledButton onPress={() => {navigation.navigate('Game')}}>
-                            <ButtonText>Play Game</ButtonText>
+                            <ButtonText>Continue Playing</ButtonText>
                         </StyledButton>
                         <StyledButton onPress={() => {navigation.navigate('Login')}}>
                             <ButtonText>Logout</ButtonText>
                         </StyledButton>
+                        <SubTitle welcome={true}>Levels</SubTitle>
+                        
                     </StyledFormArea>
                 </WelcomeContainer>
             </InnerContainer>
