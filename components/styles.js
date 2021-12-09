@@ -7,7 +7,7 @@ export const Colors = {
     secondary: "#E5E7EB",
     tertiary: "#1F2937",
     darkLight: "#9CA3AF",
-    brand: "#6D28D9",
+    brand: "#041f41",
     green: "#10B981",
     red: "#EF4444"
 };
@@ -101,13 +101,17 @@ export const StyledButton = styled.TouchableOpacity`
     height: 60px;
 `;
 export const StyledLogoutButton = styled.TouchableOpacity`
-    background-color: ${brand};
+    background-color: ${primary};
     border-radius: 5px;
     position: absolute;
     top: 10px;
     right: 5px;
     padding: 15px;
     justify-content: center;
+`;
+export const ButtonTextLogout = styled.Text`
+    color: ${brand};
+    font-size: 16px;
 `;
 
 export const ButtonText = styled.Text`

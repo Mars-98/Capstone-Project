@@ -12,8 +12,8 @@ import   '../screens/GamePlay.css'
 import gameMusicPlay from '../music/gameMusic.mp3'
 
 import {
-    ButtonText,
-    StyledLogoutButton
+    StyledLogoutButton,
+    ButtonTextLogout
 } from './../components/styles';
 
 let gameMusic = new Audio(gameMusicPlay);
@@ -188,7 +188,7 @@ const Gameplay = ({navigation}) => {
     return (
         <div className="app">
             <StyledLogoutButton onPress={() => {navigation.navigate('Login')}}>
-                <ButtonText>Logout</ButtonText>
+                <ButtonTextLogout>Logout</ButtonTextLogout>
             </StyledLogoutButton>
             <div className="game">
                 {currentBallArrangement.map((sportBal, index) => (
