@@ -11,7 +11,10 @@ import blank from '../images/blank.png'
 import   '../screens/GamePlay.css'
 import gameMusicPlay from '../music/gameMusic.mp3'
 
-
+import {
+    ButtonText,
+    StyledLogoutButton
+} from './../components/styles';
 
 let gameMusic = new Audio(gameMusicPlay);
 
@@ -28,7 +31,7 @@ const sportBall = [
     
 ]
 
-const Gameplay = () => {
+const Gameplay = ({navigation}) => {
     const [currentBallArrangement, setCurrentBallArrangement] = useState([])
     const [squareBeingDragged, setSquareBeingDragged] = useState(null)
     const [squareBeingReplaced, setSquareBeingReplaced] = useState(null)
@@ -184,6 +187,9 @@ const Gameplay = () => {
 
     return (
         <div className="app">
+            <StyledLogoutButton onPress={() => {navigation.navigate('Login')}}>
+                <ButtonText>Logout</ButtonText>
+            </StyledLogoutButton>
             <div className="game">
                 {currentBallArrangement.map((sportBal, index) => (
                     <img
@@ -201,13 +207,12 @@ const Gameplay = () => {
                     />
                 ))}
             </div>
-        
-             <div className="score">
+            <div className="score">
                   <h1>Score</h1> 
                <h2>{scoreDisplay}</h2>
                   
-              </div>
-             </div>
+            </div>
+        </div>
             
     )
 }

@@ -100,6 +100,15 @@ export const StyledButton = styled.TouchableOpacity`
     margin-vertical: 5px;
     height: 60px;
 `;
+export const StyledLogoutButton = styled.TouchableOpacity`
+    background-color: ${brand};
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    padding: 15px;
+    justify-content: center;
+`;
 
 export const ButtonText = styled.Text`
     color: ${primary};
